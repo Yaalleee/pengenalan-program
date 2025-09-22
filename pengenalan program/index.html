@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GameTop - Top Up Game Center</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1> YLS.SHOP</h1>
+      <p>Top Up Center untuk Semua Game Favorit Anda</p>
+    </div>
+    
+    <div class="content">
+      <!-- Game Selection -->
+      <div class="game-grid" id="gameGrid">
+        <div class="game-card" data-game="freefire">
+          <div class="game-logo freefire-logo">FF</div>
+          <h3>Free Fire</h3>
+          <p>Diamond Free Fire</p>
+          <a href="/topup.html">Topup Sekarang</a>
+        </div>
+        <div class="game-card" data-game="mobilelegends">
+          <div class="game-logo ml-logo">ML</div>
+          <h3>Mobile Legends</h3>
+          <p>Diamond Mobile Legends</p>
+        </div>
+        <div class="game-card" data-game="genshin">
+          <div class="game-logo gi-logo">GI</div>
+          <h3>Genshin Impact</h3>
+          <p>Genesis Crystal</p>
+        </div>
+        <div class="game-card" data-game="codm">
+          <div class="game-logo codm-logo">COD</div>
+          <h3>Call of Duty Mobile</h3>
+          <p>COD Points</p>
+        </div>
+      </div>
+
+      <!-- Form Section -->
+      <div class="form-section" id="formSection">
+        <h2 id="gameTitle">Pilih Game Terlebih Dahulu</h2>
+        
+        <div class="form-group">
+          <label for="userId">User ID/UID:</label>
+          <input type="text" id="userId" placeholder="Masukkan User ID Anda">
+          <div class="error" id="userIdError">User ID tidak boleh kosong!</div>
+        </div>
+
+        <div class="form-group">
+          <label for="serverSelect">Server:</label>
+          <select id="serverSelect">
+            <option value="">Pilih Server</option>
+          </select>
+          <div class="error" id="serverError">Pilih server terlebih dahulu!</div>
+        </div>
+
+        <div class="form-group">
+          <label>Pilih Paket Diamond/Points:</label>
+          <div class="diamond-grid" id="diamondGrid"></div>
+          <div class="error" id="diamondError">Pilih paket diamond/points!</div>
+        </div>
+
+        <div class="form-group">
+          <label for="paymentMethod">Metode Pembayaran:</label>
+          <select id="paymentMethod">
+            <option value="">Pilih Metode Pembayaran</option>
+            <option value="dana">DANA</option>
+            <option value="ovo">OVO</option>
+            <option value="gopay">GoPay</option>
+            <option value="shopeepay">ShopeePay</option>
+            <option value="bank">Transfer Bank</option>
+          </select>
+          <div class="error" id="paymentError">Pilih metode pembayaran!</div>
+        </div>
+
+        <div class="summary" id="summary" style="display: none;">
+          <h3>📋 Ringkasan Pesanan</h3>
+          <div class="summary-item"><span>Game:</span><span id="summaryGame">-</span></div>
+          <div class="summary-item"><span>User ID:</span><span id="summaryUserId">-</span></div>
+          <div class="summary-item"><span>Server:</span><span id="summaryServer">-</span></div>
+          <div class="summary-item"><span>Paket:</span><span id="summaryPackage">-</span></div>
+          <div class="summary-item"><span>Pembayaran:</span><span id="summaryPayment">-</span></div>
+          <div class="summary-item total"><span><strong>Total:</strong></span><span id="summaryTotal"><strong>-</strong></span></div>
+        </div>
+
+        <div class="loading" id="loading">
+          <div class="spinner"></div>
+          <p>Memproses transaksi...</p>
+        </div>
+
+        <button class="btn" id="processBtn" onclick="processTransaction()">💳 Proses Transaksi</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Success Modal -->
+  <div class="success-modal" id="successModal">
+    <div class="success-content">
+      <div class="success-icon">✓</div>
+      <h2>Transaksi Berhasil!</h2>
+      <p id="successMessage">Top up berhasil diproses</p>
+      <div id="transactionDetails" class="transaction-details"></div>
+      <button class="btn" onclick="closeSuccessModal()">🏠 Kembali ke Beranda</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
