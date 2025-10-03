@@ -45,7 +45,7 @@
             codm: {
                 name: 'Call of Duty Mobile',
                 currency: 'COD Points',
-                servers: ['Global', 'Garena Indonesia', 'Garena Malaysia', 'Garena Philippines'],
+                servers: ['Global', 'Garena Indonesia', 'Garena China', 'Garena Philippines'],
                 packages: [
                     { amount: '80 COD Points', price: 15000 },
                     { amount: '400 COD Points', price: 75000 },
