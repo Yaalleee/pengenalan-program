@@ -6,7 +6,7 @@
             freefire: {
                 name: 'Free Fire',
                 currency: 'Diamond',
-                servers: ['Indonesia', 'Singapore', 'Thailand', 'Malaysia'],
+                servers: ['Indonesia', 'Singapore', 'Thailand', 'Brazil'],
                 packages: [
                     { amount: '70 Diamond', price: 10000 },
                     { amount: '140 Diamond', price: 20000 },
@@ -32,7 +32,7 @@
             genshin: {
                 name: 'Genshin Impact',
                 currency: 'Genesis Crystal',
-                servers: ['Asia', 'America', 'Europe', 'TW/HK/MO'],
+                servers: ['Asia', 'Amerika', 'Europe', 'TW/HK/MO'],
                 packages: [
                     { amount: '60 Genesis Crystal', price: 15000 },
                     { amount: '300 Genesis Crystal', price: 75000 },
