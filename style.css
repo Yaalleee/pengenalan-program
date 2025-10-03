@@ -78,7 +78,7 @@
         }
 
         .game-card.selected {
-            border-color: #4CAF50;
+            border-color: #409543;
             background: linear-gradient(145deg, #e8f5e8, #d4edc4);
             transform: scale(1.02);
         }
