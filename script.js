@@ -166,7 +166,7 @@
             const userId = document.getElementById('userId').value.trim();
             const server = document.getElementById('serverSelect').value;
             const payment = document.getElementById('paymentMethod').value;
-            
+// ...existing code...
             // Validation conditions (b)
             if (!userId) {
                 document.getElementById('userIdError').style.display = 'block';
@@ -192,7 +192,8 @@
                 document.getElementById('paymentError').style.display = 'block';
                 isValid = false;
             }
-            
+
+// ...existing code...
             return isValid;
         }
 
@@ -276,12 +277,35 @@
 
         // Event listeners for real-time validation and summary update
         document.addEventListener('DOMContentLoaded', function() {
+            const paymentSelect = document.getElementById('paymentMethod');
+    const qrisContainer = document.getElementById('qrisImageContainer');
+    const processBtn = document.getElementById('processBtn');
+    const scanDoneBtn = document.getElementById('scanDoneBtn');
+
+    // QRIS logic
+    paymentSelect.addEventListener('change', function() {
+        if (this.value === 'qris') {
+            qrisContainer.style.display = 'block';
+            processBtn.disabled = true; // Disable proses transaksi
+            scanDoneBtn.style.display = 'inline-block'; // Tampilkan tombol "Sudah Scan"
+        } else {
+            qrisContainer.style.display = 'none';
+            processBtn.disabled = false; // Enable proses transaksi
+        }
+    });
+
+    // Jika user klik "Sudah Scan", enable tombol proses transaksi
+    scanDoneBtn.addEventListener('click', function() {
+        processBtn.disabled = false;
+        scanDoneBtn.style.display = 'none'; // Sembunyikan tombol "Sudah Scan"
+    });
+});
+
             // Add event listeners for game cards
             document.querySelectorAll('.game-card').forEach(card => {
                 card.addEventListener('click', function() {
                     selectGame(this.dataset.game);
-                });
-            });
+            }); 
             
             // Add event listeners for form fields
             ['userId', 'serverSelect', 'paymentMethod'].forEach(id => {
@@ -289,6 +313,16 @@
                 document.getElementById(id).addEventListener('input', updateSummary);
             });
         });
+        // Event listener untuk QRIS
+    document.getElementById('paymentMethod').addEventListener('change', function() {
+        const qrisContainer = document.getElementById('qrisImageContainer');
+        if (this.value === 'qris') {
+            qrisContainer.style.display = 'block';
+        } else {
+            qrisContainer.style.display = 'none';
+        }
+    });
+
 
         // Switch case example for payment method processing (b)
         function getPaymentIcon(method) {
@@ -321,3 +355,4 @@
             
             return `GAME${id}`;
         }
+        
